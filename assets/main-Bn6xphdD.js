@@ -13672,7 +13672,7 @@ class TA {
     MissileDPS: {
       Default: {
         Requires: ["ExplosionDamage", "Cooldown"],
-        Exclude: ["Swat Van Gunner"],
+        Exclude: ["Swat Van 0", "Swat Van 1", "Swat Van Gunner"],
         Value: (A) =>
           A.Cooldown === 0 ? 0 : A.ExplosionDamage / A.TimeBetweenMissiles,
       },
@@ -14645,7 +14645,7 @@ class BA {
         For: ['Enforcer'],
         Value: (A) => {
           if(A.Ammo != 0 && !isNaN(A.Ammo) && isFinite(A.Ammo) && A.ReloadTime != 0 && !isNaN(A.ReloadTime) && isFinite(A.ReloadTime)){
-            return (A.Damage * A.Ammo) / ((A.Ammo * A.Cooldown) + A.ReloadTime);
+            return (A.Damage * A.PelletCount * A.Ammo) / ((A.Ammo * A.Cooldown) + A.ReloadTime);
           }
           else{
             return A.Damage * A.PelletCount / (A.Cooldown + A.PumpTime);
