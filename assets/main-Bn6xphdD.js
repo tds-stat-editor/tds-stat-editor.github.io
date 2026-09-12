@@ -2976,6 +2976,7 @@ const cA = {
       Cooldown: 0.22,
       Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Defense: 0,
+      Speed: 3.5,
       Lifetime: 75,
       Range: 19,
     },
@@ -2983,6 +2984,7 @@ const cA = {
       Level: "5A/4B",
       Health: 75,
       Defense: 0,
+      Speed: 3.5,
       Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Damage: 5,
       Cooldown: 0.2,
@@ -2994,6 +2996,7 @@ const cA = {
       Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Health: 200,
       Defense: 0,
+      Speed: 3.5,
       Damage: 6,
       Cooldown: 0.16,
       Lifetime: 75,
@@ -3004,6 +3007,7 @@ const cA = {
       Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Health: 300,
       Defense: 0,
+      Speed: 3.5,
       Damage: 7,
       Cooldown: 0.12,
       Lifetime: 75,
@@ -3013,12 +3017,14 @@ const cA = {
       Level: "0-6B",
       Health: 40,
       CashOnDeath: 200,
+      Speed: 6,
       Defense: 0,
     },
     "Money Runner 1": {
       Level: "4A",
       Health: 75,
       CashOnDeath: 450,
+      Speed: 6,
       Defense: 0,
     },
     "Money Runner 2": {
@@ -3026,12 +3032,14 @@ const cA = {
       Health: 75,
       CashOnDeath: 600,
       Defense: 0,
+      Speed: 6,
     },
     "Money Runner 3": {
       Level: "6A",
       Health: 100,
       CashOnDeath: 850,
       Defense: 0,
+      Speed: 6,
     },
     "Bouncer 0": {
       Level: "4B",
@@ -3042,6 +3050,7 @@ const cA = {
       Cooldown: 0.5,
       Lifetime: 75,
       Range: 8,
+      Speed: 5,
     },
     "Bouncer 1": {
       Level: "5B",
@@ -3052,6 +3061,7 @@ const cA = {
       Cooldown: 0.5,
       Lifetime: 75,
       Range: 8,
+      Speed: 5,
     },
     "Bouncer 2": {
       Level: "6B",
@@ -3062,6 +3072,7 @@ const cA = {
       Cooldown: 0.5,
       Lifetime: 75,
       Range: 8.5,
+      Speed: 5,
     },
     "Contractor 0": {
       Level: "6B",
@@ -3072,6 +3083,49 @@ const cA = {
       Cooldown: 2,
       Lifetime: 75,
       Range: 35,
+      Speed: 3.5,
+    },
+    "Swat Van 0": {
+      Level: "5B",
+      Health: 750,
+      Detections: { Hidden: !1, Flying: !1, Lead: !1 },
+      Defense: 10,
+      Speed: 7,
+      Damage: 0,
+      Cooldown: 0,
+      ExplosionDamage: 350,
+      ExplosionRadius: 6,
+      SpawnTime: 1,
+      VansCalled: 1,
+      Range: 5,
+    },
+    "Swat Van 1": {
+      Level: "6B",
+      Health: 1200,
+      Detections: { Hidden: !1, Flying: !1, Lead: !1 },
+      Defense: 15,
+      Speed: 7,
+      Damage: 0,
+      Cooldown: 0,
+      ExplosionDamage: 450,
+      ExplosionRadius: 6,
+      SpawnTime: 1,
+      VansCalled: 1,
+      Range: 5,
+    },
+    "Swat Van Gunner": {
+      Level: "7B",
+      Health: 1599,
+      Detections: { Hidden: !0, Flying: !1, Lead: !1 },
+      Defense: 15,
+      Speed: 7,
+      Damage: 10,
+      Cooldown: 0.15,
+      ExplosionDamage: 550,
+      ExplosionRadius: 6,
+      SpawnTime: 2,
+      VansCalled: 2,
+      Range: 25,
     },
   },
   X = {
@@ -12312,18 +12366,20 @@ Helicopter Reposition has an initial cooldown of 90 seconds.`,
       },
       "Bottom Path": {
         Defaults: {
-          Detections: { Flying: !1, Hidden: !0, Lead: !0 },
-          Range: 12,
-          Price: 18250,
-          Cooldown: 0,
-          Damage: 0,
+          Detections: { Flying: !1, Hidden: !1, Lead: !0 },
+          Range: 10,
+          Price: 3000,
+          Cooldown: 1,
+          Damage: 10,
           Limit: 5,
           Attributes: {
-            PumpTime: 0,
-            PelletCount: 0,
-            MaxHits: 0,
-            BaseSpread: 0,
-            RandomSpread: 0,
+            PumpTime: 1,
+            PelletCount: 6,
+            MaxHits: 2,
+            BaseSpread: 3.5,
+            RandomSpread: 2,
+            Ammo: 25,
+            ReloadTime: 1.5,
             FlashbangStunTime: 0,
             FlashbangRadius: 0,
             FlashbangChargeThreshold: 0,
@@ -12339,9 +12395,60 @@ Helicopter Reposition has an initial cooldown of 90 seconds.`,
             },
           ],
           Note: `Has a placement footprint of 1 stud (small).
-Bottom Path has stun immunity at max level.`,
+Stun immunity at max level.`,
         },
         Upgrades: [
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/b/bf/EnforcerUpgrade1.png/revision/latest/scale-to-width-down/200?cb=20260814180759",
+            Stats: {
+              Range: 12,
+              Cooldown: 0.85,
+              Attributes: {
+                PumpTime: 0.85,
+              }
+            },
+            Title: "Elbow Grease",
+            Cost: 750,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/9/9d/EnforcerUpgrade2.png/revision/latest/scale-to-width-down/200?cb=20260814180800",
+            Stats: {
+              Detections: { Hidden: !0 },
+              Damage: 12,
+              Attributes: {
+                PelletCount: 8,
+                FlashbangStunTime: 0.5,
+                FlashbangRadius: 4,
+                FlashbangChargeThreshold: 640,
+              }
+            },
+            Title: "Flash Grenade",
+            Cost: 2650,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Stats: {
+              Damage: 20,
+              Attributes: {
+                FlashbangRadius: 5,
+                FlashbangChargeThreshold: 1000,
+              }
+            },
+            Title: "Urban Operations",
+            Cost: 4600,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Stats: {
+              Damage: 33,
+              Attributes: {
+                FlashbangStunTime: 0.75,
+                FlashbangChargeThreshold: 1500,
+              }
+            },
+            Title: "Specialist",
+            Cost: 7250,
+          },
           {
             Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/4c/EnforcerUpgrade5B.png/revision/latest/scale-to-width-down/200?cb=20260814180805",
             Stats: {
@@ -14095,6 +14202,9 @@ const PA = {
   Kingpin: {
     "Top Path": ["Lackey 0", "Lackey 1", "Lackey 2", "Money Runner 0", "Money Runner 1", "Money Runner 2", "Money Runner 3"],
     "Bottom Path": ["Lackey 1", "Lackey 2", "Lackey 3", "Money Runner 0", "Bouncer 0", "Bouncer 1", "Bouncer 2", "Contractor 0"],
+  },
+  Enforcer: {
+    "Bottom Path": ['Swat Van 0', 'Swat Van 1', 'Swat Van Gunner'],
   },
 };
 class v {
