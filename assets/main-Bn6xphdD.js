@@ -2974,12 +2974,15 @@ const cA = {
       Health: 45,
       Damage: 2,
       Cooldown: 0.22,
+      Defense: 0,
       Lifetime: 75,
       Range: 19,
     },
     "Lackey 1": {
       Level: "5A/4B",
       Health: 75,
+      Defense: 0,
+      Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Damage: 5,
       Cooldown: 0.2,
       Lifetime: 75,
@@ -2987,7 +2990,9 @@ const cA = {
     },
     "Lackey 2": {
       Level: "6A/5B",
+      Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Health: 200,
+      Defense: 0,
       Damage: 6,
       Cooldown: 0.16,
       Lifetime: 75,
@@ -2995,7 +3000,9 @@ const cA = {
     },
     "Lackey 3": {
       Level: "6B",
+      Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Health: 300,
+      Defense: 0,
       Damage: 7,
       Cooldown: 0.12,
       Lifetime: 75,
@@ -3005,21 +3012,65 @@ const cA = {
       Level: "0-6B",
       Health: 40,
       CashOnDeath: 200,
+      Defense: 0,
     },
     "Money Runner 1": {
       Level: "4A",
       Health: 75,
       CashOnDeath: 450,
+      Defense: 0,
     },
     "Money Runner 2": {
       Level: "5A",
       Health: 75,
       CashOnDeath: 600,
+      Defense: 0,
     },
     "Money Runner 3": {
       Level: "6A",
       Health: 100,
       CashOnDeath: 850,
+      Defense: 0,
+    },
+    "Bouncer 0": {
+      Level: "4B",
+      Health: 500,
+      Detections: { Hidden: !0, Flying: !1, Lead: !0 },
+      Defense: 0,
+      Damage: 25,
+      Cooldown: 0.5,
+      Lifetime: 75,
+      Range: 8,
+    },
+    "Bouncer 1": {
+      Level: "5B",
+      Health: 750,
+      Defense: 10,
+      Detections: { Hidden: !0, Flying: !1, Lead: !0 },
+      Damage: 35,
+      Cooldown: 0.5,
+      Lifetime: 75,
+      Range: 8,
+    },
+    "Bouncer 2": {
+      Level: "6B",
+      Health: 1000,
+      Detections: { Hidden: !0, Flying: !1, Lead: !0 },
+      Defense: 15,
+      Damage: 40,
+      Cooldown: 0.5,
+      Lifetime: 75,
+      Range: 8.5,
+    },
+    "Contractor 0": {
+      Level: "6B",
+      Health: 400,
+      Detections: { Hidden: !0, Flying: !0, Lead: !0 },
+      Defense: 0,
+      Damage: 170,
+      Cooldown: 2,
+      Lifetime: 75,
+      Range: 35,
     },
   },
   X = {
@@ -4498,26 +4549,45 @@ To change its ability cooldown, scroll down in the upgrades viewer.`,
             Title: "High Roller",
             Cost: 6000,
           },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/7/7d/Kingpin4B.png/revision/latest/scale-to-width-down/200?cb=20260717161714",
+            Stats: {
+              Cooldown: 0.12,
+              Damage: 17,
+              Range: 22,
+              Attributes: { UnitQueues: 3 },
+            },
+            Title: "Underworld Backup",
+            Cost: 14000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/dd/Kingpin5B.png/revision/latest/scale-to-width-down/200?cb=20260717161716",
+            Stats: {
+              Damage: 34,
+              Range: 23,
+            },
+            Title: "B.P. Operations",
+            Cost: 32500,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/dd/Kingpin5B.png/revision/latest/scale-to-width-down/200?cb=20260717161716",
+            Stats: {
+              Detections: { Lead: !0 },
+              Damage: 46,
+              Cooldown: 0.1,
+            },
+            Title: "Golden Syndicate",
+            Cost: 64000,
+          },
         ],
         Defaults: {
           Detections: { Flying: !1, Hidden: !1, Lead: !1 },
           Range: 17.5,
           Price: 3600,
-          Attributes: { UnitQueues: 1, LackeySpawnrate: 37.5, MoneyRunnerSpawnrate: 40, BountyPercentage: 0, BountyCap: 0 },
+          Attributes: { UnitQueues: 1, LackeySpawnrate: 37.5, MoneyRunnerSpawnrate: 40},
           Cooldown: 1.1,
           Damage: 24,
           Limit: 4,
-          Abilities: [
-            {
-              Icon: "https://static.wikia.nocookie.net/tower-defense-sim/images/3/36/KingpinBounty.png/revision/latest/scale-to-width-down/150?cb=20260717161719",
-              Level: 4,
-              Cost: 0,
-              Name: "Hit Order",
-              Cooldown: 120,
-              Description: `Places a hit order on an enemy in range, making Kingpin stop attacking enemies for 2 seconds. When that enemy is killed, a bonus reward is given which is a specific percentage of the enemy's total cash reward. The reward from this ability cannot go above a specific limit.`,
-            },
-          ],
-          Note: `Hit Order ability has an initial cooldown of 40 seconds.`,
         },
       },
     },
@@ -12118,12 +12188,24 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
             MaxHits: 2,
             BaseSpread: 3.5,
             RandomSpread: 2,
+            Ammo: 25,
+            ReloadTime: 1.5,
             FlashbangStunTime: 0,
             FlashbangRadius: 0,
             FlashbangChargeThreshold: 0,
           },
+          Abilities: [
+            {
+              Name: "Helicopter Reposition",
+              Level: 0,
+              Icon: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d4/HelicopterRepositionAbility.png/revision/latest/scale-to-width-down/150?cb=20260814180812",
+              Cooldown: 90,
+              Price: 2500,
+              Description: "Moves one player owned tower from one spot on the map to another. Cannot relocate the Farm, Pursuit, Ace Pilot or Gatling Gun.",
+            },
+          ],
           Note: `Has a placement footprint of 1 stud (small).
-Grovepark: Where`,
+Helicopter Reposition has an initial cooldown of 90 seconds.`,
         },
         Upgrades: [
           {
@@ -12177,7 +12259,136 @@ Grovepark: Where`,
             Title: "Specialist",
             Cost: 7250,
           },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/48/EnforcerUpgrade5A.png/revision/latest/scale-to-width-down/200?cb=20260814180804",
+            Stats: {
+              Damage: 14,
+              Cooldown: 0.2,
+              Range: 17,
+              Attributes: {
+                Ammo: 25,
+                PumpTime: 0,
+                ReloadTime: 1.5,
+                MaxHits: 1,
+                BaseSpread: 1.5,
+                RandomSpread: 1,
+                PelletCount: 4,
+                FlashbangStunTime: 1.2,
+                FlashbangChargeThreshold: 1200,
+                FlashbangRadius: 4.5,
+              }
+            },
+            Title: "Good Comms",
+            Cost: 12000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/a/ae/EnforcerUpgrade6A.png/revision/latest/scale-to-width-down/200?cb=20260814180806",
+            Stats: {
+              Range: 19.5,
+              Attributes: {
+                Ammo: 60,
+                PelletCount: 6,
+                FlashbangChargeThreshold: 1800,
+              }
+            },
+            Title: "Full Arsenal",
+            Cost: 20000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/40/EnforcerUpgrade7A.png/revision/latest/scale-to-width-down/200?cb=20260814180808",
+            Stats: {
+              Damage: 18,
+              Attributes: {
+                ReloadTime: 1,
+                FlashbangChargeThreshold: 2700,
+                FlashbangStunTime: 1.5,
+              }
+            },
+            Title: "Punisher",
+            Cost: 31500,
+          },
         ], 
+      },
+      "Bottom Path": {
+        Defaults: {
+          Detections: { Flying: !1, Hidden: !0, Lead: !0 },
+          Range: 12,
+          Price: 18250,
+          Cooldown: 0,
+          Damage: 0,
+          Limit: 5,
+          Attributes: {
+            PumpTime: 0,
+            PelletCount: 0,
+            MaxHits: 0,
+            BaseSpread: 0,
+            RandomSpread: 0,
+            FlashbangStunTime: 0,
+            FlashbangRadius: 0,
+            FlashbangChargeThreshold: 0,
+          },
+          Abilities: [
+            {
+              Name: "SWAT Van",
+              Level: 0,
+              Icon: "https://static.wikia.nocookie.net/tower-defense-sim/images/3/36/SWATVanAbility.png/revision/latest/scale-to-width-down/150?cb=20260814180811",
+              Cooldown: 45,
+              Price: 0,
+              Description: "Summons in a Swat Van which collides with enemies and explodes upon death. With upgrades, replaces it with Swat Van Gunner which also fires at enemies. Number of units spawned depends on the upgrade.",
+            },
+          ],
+          Note: `Has a placement footprint of 1 stud (small).
+Bottom Path has stun immunity at max level.`,
+        },
+        Upgrades: [
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/4c/EnforcerUpgrade5B.png/revision/latest/scale-to-width-down/200?cb=20260814180805",
+            Stats: {
+              Damage: 33,
+              Range: 13,
+              Cooldown: 0.7,
+              Attributes: {
+                PumpTime: 0.7,
+                PelletCount: 8,
+                MaxHits: 2,
+                BaseSpread: 2.5,
+                RandomSpread: 2,
+                FlashbangStunTime: 0.75,
+                FlashbangRadius: 6.5,
+                FlashbangChargeThreshold: 2000,
+              }
+            },
+            Title: "SWAT Van",
+            Cost: 12000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/8/87/EnforcerUpgrade6B.png/revision/latest/scale-to-width-down/200?cb=20260814180807",
+            Stats: {
+              Damage: 38,
+              Attributes: {
+                PelletCount: 10,
+                FlashbangStunTime: 1,
+                FlashbangChargeThreshold: 2500,
+              }
+            },
+            Title: "Full Suit",
+            Cost: 15000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/df/EnforcerUpgrade7B.png/revision/latest/scale-to-width-down/200?cb=20260814180810",
+            Stats: {
+              Damage: 45,
+              Range: 14,
+              Attributes: {
+                PelletCount: 10,
+                FlashbangStunTime: 1,
+                FlashbangChargeThreshold: 3000,
+              }
+            },
+            Title: "Peacekeeper",
+            Cost: 20000,
+          },
+        ],
       },
     },
   };
@@ -13882,7 +14093,8 @@ const PA = {
   Medic: { Default: ["Ubercharge 3", "Ubercharge 4", "Ubercharge 5"] },
   Kingpin: {
     "Top Path": ["Lackey 0", "Lackey 1", "Lackey 2", "Money Runner 0", "Money Runner 1", "Money Runner 2", "Money Runner 3"],
-  }
+    "Bottom Path": ["Lackey 1", "Lackey 2", "Lackey 3", "Money Runner 0", "Bouncer 0", "Bouncer 1", "Bouncer 2", "Contractor 0"],
+  },
 };
 class v {
   constructor(A) {
@@ -14322,7 +14534,12 @@ class BA {
       Enforcer: {
         For: ['Enforcer'],
         Value: (A) => {
-          A.Damage * A.PelletCount / (A.Cooldown + A.PumpTime)
+          if(A.Ammo != 0 && !isNaN(A.Ammo) && isFinite(A.Ammo) && A.ReloadTime != 0 && !isNaN(A.ReloadTime) && isFinite(A.ReloadTime)){
+            return (A.Damage * A.Ammo) / ((A.Ammo * A.Cooldown) + A.ReloadTime);
+          }
+          else{
+            return A.Damage * A.PelletCount / (A.Cooldown + A.PumpTime);
+          }
         },
       },
       Assassin: {
@@ -16185,6 +16402,8 @@ class WA {
       case "BaseIncome":
       case "IncomePerTower":
       case "MaxIncome":
+      case "BossCostEfficiency":
+      case "CashOnDeath":
         return `$${I.format(+(+A).toFixed(2))}`;
       case "Defense":
       case "SlowdownPerHit":
@@ -16200,6 +16419,7 @@ class WA {
       case "CostClone":
       case "Slowdown":
       case "DamageBoost":
+      case "FortifyDebuffTimeReduction":
         return I.format(A) + "%";
       case "Duration":
       case "MissileCooldown":
