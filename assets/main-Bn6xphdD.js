@@ -2974,6 +2974,7 @@ const cA = {
       Health: 45,
       Damage: 2,
       Cooldown: 0.22,
+      Detections: { Hidden: !0, Flying: !1, Lead: !1 },
       Defense: 0,
       Lifetime: 75,
       Range: 19,
