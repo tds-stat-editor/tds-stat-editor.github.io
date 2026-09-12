@@ -14361,7 +14361,7 @@ class BA {
           }
           else{
             if(A.WhirlwindHit != 0 && !isNaN(A.WhirlwindHit) && isFinite(A.WhirlwindHit)){
-              return (Damage * (A.WhirlwindHit - 1) + A.WhirlwindHit) / (A.Cooldown * A.WhirlwindHit);
+              return (A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindHit) / (A.Cooldown * A.WhirlwindHit);
             }
             else{
               return A.Damage / A.Cooldown;
