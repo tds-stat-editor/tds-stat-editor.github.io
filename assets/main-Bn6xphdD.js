@@ -4470,60 +4470,33 @@ To change its ability cooldown, scroll down in the upgrades viewer.`,
       Golden: {
         Upgrades: [
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d5/Cowboy_Upgrade_1_New.png/revision/latest/scale-to-width-down/200?cb=20240704135222",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/6/64/Kingpin1.png/revision/latest/scale-to-width-down/200?cb=20260717161706",
             Stats: {
-              Attributes: { MaxAmmo: 6, SpinDuration: 1.5 },
-              Extras: ["Spin Time: 2s → 1.5s"],
-              Cooldown: 0.75,
-              Range: 15,
-            },
-            Title: "Headshot Practice",
-            Cost: 200,
-          },
-          {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/b/ba/NewCowboyLevel2.png/revision/latest/scale-to-width-down/200?cb=20200902101004",
-            Stats: {
-              Income: 60,
-              Damage: 5,
-            },
-            Title: "Gold Shot",
-            Cost: 650,
-          },
-          {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/8/83/Cowboy_Upgrade_3_New.png/revision/latest/scale-to-width-down/200?cb=20240704135217",
-            Stats: {
-              Attributes: { SpinDuration: 1.25 },
-              Extras: ["Spin Time: 1.5s → 1.25s"],
-              Detections: { Hidden: !0 },
-              Cooldown: 0.6,
-              Range: 17.5,
-              Damage: 12,
-            },
-            Title: "Faster Instincts",
-            Cost: 2400,
-          },
-          {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/4a/Cowboy_Upgrade_4_New.png/revision/latest/scale-to-width-down/200?cb=20240704135227",
-            Stats: {
-              Attributes: { MaxAmmo: 12 },
-              Extras: ["Max Ammo: 6 → 12"],
-              Income: 150,
-              Cooldown: 0.3,
+              Cooldown: 0.85,
               Range: 20,
             },
-            Title: "Double Tap II",
-            Cost: 4250,
+            Title: "Hat Trick",
+            Cost: 1400,
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/0/0e/Cowboy_Upgrade_5_New.png/revision/latest/scale-to-width-down/200?cb=20240704135949",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d9/Kingpin2.png/revision/latest/scale-to-width-down/200?cb=20260717161708",
             Stats: {
-              Attributes: { SpinDuration: 1 },
-              Extras: ["Spin Time: 1.25s → 1s"],
-              Income: 225,
-              Damage: 26,
+              Damage: 7,
+              Cooldown: 0.14,
+              Attributes: { UnitQueues: 2 },
             },
-            Title: "Wildest Of The West",
-            Cost: 9750,
+            Title: "Mafia Expansion",
+            Cost: 4000,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/f/fe/Kingpin3.png/revision/latest/scale-to-width-down/200?cb=20260717161709",
+            Stats: {
+              Attributes: { LackeySpawnrate: 30, MoneyRunnerSpawnrate: 30 },
+              Detections: { Flying: !0 },
+              Damage: 12,
+            },
+            Title: "High Roller",
+            Cost: 6000,
           },
         ],
         Defaults: {
@@ -4536,95 +4509,6 @@ To change its ability cooldown, scroll down in the upgrades viewer.`,
           Damage: 3,
           Limit: 12,
         },
-      },
-      PVP: {
-        Defaults: {
-          Income: 50,
-          Detections: { Flying: !1, Hidden: !1, Lead: !1 },
-          Range: 14,
-          Price: 550,
-          Attributes: { MaxAmmo: 6, SpinDuration: 1.25 },
-          Cooldown: 1,
-          Damage: 4,
-          Limit: 10,
-        },
-        Upgrades: [
-          {
-            Image: 4999425200,
-            Stats: {
-              Attributes: { MaxAmmo: 6, SpinDuration: 1 },
-              Extras: [],
-              Income: 50,
-              Detections: { Flying: !1, Hidden: !1, Lead: !1 },
-              Cooldown: 0.8,
-              Range: 14.5,
-              Damage: 4,
-              Limit: 10,
-            },
-            Title: "Steady Hand",
-            Cost: 200,
-          },
-          {
-            Image: 5523233366,
-            Stats: {
-              Attributes: { MaxAmmo: 6, SpinDuration: 1 },
-              Extras: [],
-              Income: 60,
-              Detections: { Flying: !1, Hidden: !1, Lead: !1 },
-              Cooldown: 0.8,
-              Range: 16,
-              Damage: 6,
-              Limit: 10,
-            },
-            Title: "Lucky Shot",
-            Cost: 500,
-          },
-          {
-            Image: 5523231844,
-            Stats: {
-              Attributes: { MaxAmmo: 6, SpinDuration: 0.75 },
-              Extras: [],
-              Income: 75,
-              Detections: { Flying: !1, Hidden: !0, Lead: !1 },
-              Cooldown: 0.5,
-              Range: 18,
-              Damage: 10,
-              Limit: 10,
-            },
-            Title: "Faster Instincts",
-            Cost: 2e3,
-          },
-          {
-            Image: 5523234030,
-            Stats: {
-              Attributes: { MaxAmmo: 12, SpinDuration: 0.75 },
-              Extras: [],
-              Income: 175,
-              Detections: { Flying: !1, Hidden: !0, Lead: !1 },
-              Cooldown: 0.25,
-              Range: 20,
-              Damage: 10,
-              Limit: 10,
-            },
-            Title: "Double Tap",
-            Cost: 3500,
-          },
-          {
-            Image: 5523234990,
-            Stats: {
-              Attributes: { MaxAmmo: 12, SpinDuration: 0.75 },
-              Extras: [],
-              Income: 300,
-              Detections: { Flying: !1, Hidden: !0, Lead: !1 },
-              Cooldown: 0.25,
-              Range: 20,
-              Damage: 18,
-              Limit: 10,
-            },
-            Title: "Outlawed",
-            Cost: 7e3,
-          },
-        ],
       },
     },
     Demoman: {
@@ -12209,6 +12093,83 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
         ],
       },
     },
+    Enforcer: {
+      "Top Path": {
+        Defaults: {
+          Detections: { Flying: !1, Hidden: !1, Lead: !0 },
+          Range: 10,
+          Price: 3000,
+          Cooldown: 1,
+          Damage: 10,
+          Limit: 5,
+          Attributes: {
+            PumpTime: 1,
+            PelletCount: 6,
+            MaxHits: 2,
+            BaseSpread: 3.5,
+            RandomSpread: 2,
+            FlashbangStunTime: 0,
+            FlashbangRadius: 0,
+            FlashbangChargeThreshold: 0,
+          },
+          Note: `Has a placement footprint of 1 stud (small).
+Grovepark: Where`,
+        },
+        Upgrades: [
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/b/bf/EnforcerUpgrade1.png/revision/latest/scale-to-width-down/200?cb=20260814180759",
+            Stats: {
+              Range: 12,
+              Cooldown: 0.85,
+              Attributes: {
+                PumpTime: 0.85,
+              }
+            },
+            Title: "Elbow Grease",
+            Cost: 750,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/9/9d/EnforcerUpgrade2.png/revision/latest/scale-to-width-down/200?cb=20260814180800",
+            Stats: {
+              Detections: { Hidden: !0 },
+              Damage: 12,
+              Attributes: {
+                PelletCount: 8,
+                FlashbangStunTime: 0.5,
+                FlashbangRadius: 4,
+                FlashbangChargeThreshold: 640,
+              }
+            },
+            Title: "Flash Grenade",
+            Cost: 2650,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Stats: {
+              Damage: 20,
+              Attributes: {
+                FlashbangRadius: 5,
+                FlashbangChargeThreshold: 1000,
+              }
+            },
+            Title: "Urban Operations",
+            Cost: 4600,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Stats: {
+              Damage: 33,
+              Attributes: {
+                FlashbangStunTime: 0.75,
+                FlashbangChargeThreshold: 1500,
+              }
+            },
+            Title: "Specialist",
+            Cost: 7250,
+          },
+        ], 
+      },
+    },
   };
 class KA {
   constructor(A, g) {
@@ -14348,20 +14309,26 @@ class BA {
         For: ['Saboteur'],
         Value: (A) => ((A.Damage * A.MaxHits * A.ShotSize) / A.Cooldown) + (A.PoisonDamage / A.TickRate),
       },
+      Enforcer: {
+        For: ['Enforcer'],
+        Value: (A) => {
+          A.Damage * A.PelletCount / (A.Cooldown + A.PumpTime)
+        },
+      },
       Assassin: {
         For: ["Assassin"],
         Value: (A) => {
           if(A.DamageThreshold != 0 && !isNaN(A.DamageThreshold) && isFinite(A.DamageThreshold)){
             if(A.WhirlwindHit != 0 && !isNaN(A.WhirlwindHit) && isFinite(A.WhirlwindHit)){
-              return (A.DamageThreshold +  A.KnifeDamage * A.KnifeAmount) / (A.DamageThreshold / ((A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindDamage) / A.WhirlwindHit) * A.Cooldown + A.KnifeTime);
+              return A.DamageThreshold / (A.DamageThreshold / ((A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindDamage) / A.WhirlwindHit) * A.Cooldown + A.KnifeTime);
             }
             else{
-              return (A.DamageThreshold +  A.KnifeDamage * A.KnifeAmount) / (A.DamageThreshold / ((A.Damage * A.Cooldown) + A.KnifeTime));
+              return A.DamageThreshold / (A.DamageThreshold / ((A.Damage * A.Cooldown) + A.KnifeTime));
             }
           }
           else{
             if(A.WhirlwindHit != 0 && !isNaN(A.WhirlwindHit) && isFinite(A.WhirlwindHit)){
-              return (A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindHit) / (A.Cooldown * A.WhirlwindHit);
+              return (A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindDamage) / (A.Cooldown * A.WhirlwindHit);
             }
             else{
               return A.Damage / A.Cooldown;
