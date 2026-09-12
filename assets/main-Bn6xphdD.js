@@ -4755,6 +4755,7 @@ To change its ability cooldown, scroll down in the upgrades viewer.`,
                 Velocity: 20,
                 MustAim: !1,
                 AimTime: 0,
+                ExplosionRadius: 5.5,
               },
               Extras: ["Faster Projectile", "No Aim Time"],
               Range: 15,
@@ -11665,18 +11666,18 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
         },
         Upgrades: [
           {
-            Image: "111493227843909",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/2/2a/AssassinUpgrade1.png/revision/latest/scale-to-width-down/200?cb=20250806200313",
             Stats: { Damage: 6, Cooldown: 0.5 },
             Title: "CQC Training",
             Cost: 450,
           },
           {
-            Image: "92894447316956",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/3/3c/AssassinUpgrade2.png/revision/latest/scale-to-width-down/200?cb=20250806200314",
             Stats: {
-              Detections: { Hidden: !0 },
+              Detections: { Hidden: !0, Lead: !0 },
               Attributes: {
                 WhirlwindHit: 3,
-                WhirlwindMultiplier: 200,
+                WhirlwindMultiplier: 100,
                 WhirlwindRange: 6,
               },
               Extras: [
@@ -11685,32 +11686,28 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
                 "[Collapsible]Whirlwind Range: NaN → 6",
               ],
             },
-            Title: "Advanced Hand to Hand Training",
-            Cost: 750,
+            Title: "Umbral Tempest",
+            Cost: 625,
+            Damage: 9,
           },
           {
-            Image: "71356771597575",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/7/77/AssassinUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20250806200315",
             Stats: {
-              Detections: { Hidden: !0 },
               Cooldown: 0.35,
               Damage: 14,
-              Attributes: {
-                WhirlwindMultiplier: 150,
-              },
               Extras: [
                 "[Collapsible:Upgraded Whirlwind Slash]Whirlwind Damage: 10 → 25",
               ],
             },
-            Title: "Upgraded Blades",
-            Cost: 2400,
+            Title: "Ascended Shadow",
+            Cost: 2000,
           },
           {
-            Image: "88526006090438",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/e/e0/AssassinUpgrade4.png/revision/latest/scale-to-width-down/200?cb=20250806200316",
             Stats: {
               Range: 6.5,
               Damage: 35,
               Attributes: {
-                WhirlwindMultiplier: 100,
                 DamageThreshold: 500,
                 KnifePierce: 3,
                 KnifeDamage: 60,
@@ -11726,8 +11723,8 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
                 "[Collapsible1:Upgraded Whirlwind Slash]Whirlwind Range: 6 → 7",
               ],
             },
-            Title: "Black Ops",
-            Cost: 6350,
+            Title: "Death Arms Ninja",
+            Cost: 6800,
           },
         ],
       },
@@ -12305,7 +12302,7 @@ Helicopter Reposition has an initial cooldown of 90 seconds.`,
             Cost: 4600,
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/5/52/EnforcerUpgrade4.png/revision/latest/scale-to-width-down/200?cb=20260814180802",
             Stats: {
               Damage: 33,
               Attributes: {
@@ -12438,7 +12435,7 @@ Stun immunity at max level.`,
             Cost: 4600,
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/d3/EnforcerUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20260814180801",
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/5/52/EnforcerUpgrade4.png/revision/latest/scale-to-width-down/200?cb=20260814180802",
             Stats: {
               Damage: 33,
               Attributes: {
