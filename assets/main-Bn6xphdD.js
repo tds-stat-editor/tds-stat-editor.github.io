@@ -11630,15 +11630,15 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
           Cooldown: 0.6,
           Damage: 3,
           Attributes: {
-            DamageThreshold: "NaN",
-            KnifePierce: "NaN",
-            KnifeDamage: "NaN",
-            KnifeAmount: "NaN",
-            KnifeRange: "NaN",
+            DamageThreshold: 0,
+            KnifePierce: 0,
+            KnifeDamage: 0,
+            KnifeAmount: 0,
+            KnifeRange: 0,
             KnifeTime: 0.5,
-            WhirlwindHit: "NaN",
-            WhirlwindMultiplier: "NaN",
-            WhirlwindRange: "NaN",
+            WhirlwindHit: 0,
+            WhirlwindMultiplier: 0,
+            WhirlwindRange: 0,
           },
           Note: "Has a placement footprint of 1 stud (small).",
         },
@@ -14350,20 +14350,24 @@ class BA {
       },
       Assassin: {
         For: ["Assassin"],
-        Value: (A) =>
-          isNaN(A.WhirlwindDamage)
-            ? A.Damage / A.Cooldown
-            : !isNaN(A.DamageThreshold) &&
-                !isNaN(A.KnifeDamage) &&
-                !isNaN(A.KnifeTime)
-              ? A.DamageThreshold /
-                ((A.DamageThreshold /
-                  ((A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindDamage) /
-                    A.WhirlwindHit)) *
-                  A.Cooldown +
-                  A.KnifeTime)
-              : (A.Damage * 2 + A.WhirlwindDamage) /
-                (A.Cooldown * A.WhirlwindHit),
+        Value: (A) => {
+          if(A.DamageThreshold != 0 && !isNaN(A.DamageThreshold) && isFinite(A.DamageThreshold)){
+            if(A.WhirlwindHit != 0 && !isNaN(A.WhirlwindHit) && isFinite(A.WhirlwindHit)){
+              return (A.DamageThreshold +  A.KnifeDamage * A.KnifeAmount) / (A.DamageThreshold / ((A.Damage * (A.WhirlwindHit - 1) + A.WhirlwindDamage) / A.WhirlwindHit) * A.Cooldown + A.KnifeTime);
+            }
+            else{
+              return (A.DamageThreshold +  A.KnifeDamage * A.KnifeAmount) / (A.DamageThreshold / ((A.Damage * A.Cooldown) + A.KnifeTime));
+            }
+          }
+          else{
+            if(A.WhirlwindHit != 0 && !isNaN(A.WhirlwindHit) && isFinite(A.WhirlwindHit)){
+              return (Damage * (A.WhirlwindHit - 1) + A.WhirlwindHit) / (A.Cooldown * A.WhirlwindHit);
+            }
+            else{
+              return A.Damage / A.Cooldown;
+            }
+          }
+        },
       },
       BurnTower: {
         For: ["Pyromancer"],
