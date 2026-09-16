@@ -5456,7 +5456,7 @@ Drop the Beat ability has an initial cooldown of 10 seconds.`,
         ],
         Defaults: {
           Limit: 9,
-          Detections: { Flying: !1, Hidden: !1, Lead: !1 },
+          Detections: { Flying: !0, Hidden: !1, Lead: !1 },
           Range: 14,
           Price: 750,
           Attributes: { MaxHits: 3, MaxBounce: 3, TickRate: 0.15 },
