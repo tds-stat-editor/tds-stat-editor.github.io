@@ -14681,7 +14681,7 @@ class BA {
         For: ["Gladiator"],
         Requires: ["Damage", "Cooldown", "BurnDamage"],
         Value: (A) => {
-          let burnDPS = A.BurnDamage / A.BurnTickRate;
+          let burnDPS = A.TotalElapsedDamage / A.BurnCooldown;
 
           if (isNaN(burnDPS) || !isFinite(burnDPS)) burnDPS = 0;
           
