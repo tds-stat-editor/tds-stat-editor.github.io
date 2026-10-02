@@ -6154,7 +6154,7 @@ Drop the Beat ability has an initial cooldown of 10 seconds.`,
                 MaxHits: 5,
                 BurnDamage: 2,
                 BurnTime: 1.2,
-                BurnTickRate: 0.3,
+                TickRate: 0.3,
                 BurnCooldown: 4,
               },
               Cooldown: 0.7,
@@ -6186,7 +6186,7 @@ Drop the Beat ability has an initial cooldown of 10 seconds.`,
                 MaxHits: 10,
                 BurnCooldown: 2,
                 BurnTime: 1.5,
-                BurnTickRate: 0.15,
+                TickRate: 0.15,
                 BurnDamage: 7,
               },
               Cooldown: 0.55,
@@ -6199,7 +6199,7 @@ Drop the Beat ability has an initial cooldown of 10 seconds.`,
         ],
         Defaults: {
           Detections: { Flying: !1, Hidden: !0, Lead: !1 },
-          Attributes: { BurnDamage: 0, BurnTickRate: 0, BurnTime: 0, BurnCooldown: 0, MaxHits: 2, ParryLength: 0.75 },
+          Attributes: { BurnDamage: 0, TickRate: 0, BurnTime: 0, BurnCooldown: 0, MaxHits: 2, ParryLength: 0.75 },
           Abilities: [
             {
               Name: "War Cry",
@@ -16164,7 +16164,6 @@ class aA {
       case "BeeDuration":
       case "ParryCooldown":
       case "ParryLength":
-      case "BurnTickRate":
       case "BurnDuration":
       case "BurnCooldown":
       case "LaserTime":
