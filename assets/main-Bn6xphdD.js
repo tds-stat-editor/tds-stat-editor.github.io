@@ -15098,16 +15098,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           100 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (100HP)": {
+    "BleedCollapseDamage (100HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           100 ** A.ExponentialValue,
       },
     },
@@ -15116,16 +15116,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           10 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (10HP)": {
+    "BleedCollapseDamage (10HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           10 ** A.ExponentialValue,
       },
     },
@@ -15134,16 +15134,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           1e3 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (1000HP)": {
+    "BleedCollapseDamage (1000HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           1e3 ** A.ExponentialValue,
       },
     },
@@ -15152,16 +15152,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           1e4 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (10000HP)": {
+    "BleedCollapseDamage (10000HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           1e4 ** A.ExponentialValue,
       },
     },
@@ -15170,16 +15170,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           1e5 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (100000HP)": {
+    "BleedCollapseDamage (100000HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           1e5 ** A.ExponentialValue,
       },
     },
@@ -15188,16 +15188,16 @@ class BA {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.BleedStack ** A.ExponentialValue *
+          1 ** 0.9 *
           1e6 ** A.ExponentialValue,
       },
     },
-    "BleedCollaspeDamage (1000000HP)": {
+    "BleedCollapseDamage (1000000HP)": {
       Default: {
         For: ["Slasher"],
         Value: (A) =>
           A.BleedDamage *
-          A.MaxStacks ** A.ExponentialValue *
+          A.MaxStacks ** 0.9 *
           1e6 ** A.ExponentialValue,
       },
     },
@@ -15391,17 +15391,17 @@ class BA {
       this.#A("AftershockDPS", A),
       this.#A("WhirlwindDamage", A),
       this.#A("BleedDamageTick (10HP)", A),
-      this.#A("BleedCollaspeDamage (10HP)", A),
+      this.#A("BleedCollapseDamage (10HP)", A),
       this.#A("BleedDamageTick (100HP)", A),
-      this.#A("BleedCollaspeDamage (100HP)", A),
+      this.#A("BleedCollapseDamage (100HP)", A),
       this.#A("BleedDamageTick (1000HP)", A),
-      this.#A("BleedCollaspeDamage (1000HP)", A),
+      this.#A("BleedCollapseDamage (1000HP)", A),
       this.#A("BleedDamageTick (10000HP)", A),
-      this.#A("BleedCollaspeDamage (10000HP)", A),
+      this.#A("BleedCollapseDamage (10000HP)", A),
       this.#A("BleedDamageTick (100000HP)", A),
-      this.#A("BleedCollaspeDamage (100000HP)", A),
+      this.#A("BleedCollapseDamage (100000HP)", A),
       this.#A("BleedDamageTick (1000000HP)", A),
-      this.#A("BleedCollaspeDamage (1000000HP)", A),
+      this.#A("BleedCollapseDamage (1000000HP)", A),
       this.#A("FireTime", A),
       this.#A("SpikeMaxDamage", A),
       this.#A("LandmineMaxDamage", A),
@@ -16852,11 +16852,11 @@ class VA {
         "AggregateUnitDPS",
         "EnemyBuff",
         "Velocity",
-        "BleedCollaspeDamage (10HP)",
-        "BleedCollaspeDamage (1000HP)",
-        "BleedCollaspeDamage (10000HP)",
-        "BleedCollaspeDamage (100000HP)",
-        "BleedCollaspeDamage (1000000HP)",
+        "BleedCollapseDamage (10HP)",
+        "BleedCollapseDamage (1000HP)",
+        "BleedCollapseDamage (10000HP)",
+        "BleedCollapseDamage (100000HP)",
+        "BleedCollapseDamage (1000000HP)",
         "BleedDamageTick (10HP)",
         "BleedDamageTick (1000HP)",
         "BleedDamageTick (10000HP)",
