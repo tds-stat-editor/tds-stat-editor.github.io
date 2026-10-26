@@ -5412,7 +5412,7 @@ Drop the Beat ability has an initial cooldown of 10 seconds.`,
               Range: 17,
             },
             Title: "Quick Chopping",
-            Cost: 250,
+            Cost: 450,
           },
           {
             Image: "https://tds.wiki/images/thumb/8/89/ExecutionerUpgrade2.png/200px-ExecutionerUpgrade2.png.webp?cb=20260925170912",
