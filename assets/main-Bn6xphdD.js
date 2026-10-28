@@ -14971,7 +14971,7 @@ class BA {
       Default: {
         For: ["Archer"],
         Value: (A) => {
-          if ((this.unitManager.load(), A.Level < 5)) return 0;
+          if ((this.unitManager.load(), A.Level < 4)) return 0;
           let g;
           if (A.Level >= 5) g = "Explosive Arrow 5";
           else if (A.Level >= 4) g = "Explosive Arrow 4";
