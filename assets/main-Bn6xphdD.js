@@ -3437,7 +3437,7 @@ const cA = {
               Damage: 10,
             },
             Title: "Flame-tipped Arrows",
-            Cost: 1e3,
+            Cost: 1250,
           },
           {
             Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/3/39/ArcherUpgrade4.png/revision/latest/scale-to-width-down/200?cb=20250806200311",
@@ -3477,7 +3477,7 @@ const cA = {
               Damage: 40,
             },
             Title: "Shot of the Century",
-            Cost: 8575,
+            Cost: 8500,
           },
         ],
         Defaults: {
