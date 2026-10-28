@@ -10354,7 +10354,6 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
               ],
               Attributes: {
                 RocketSpeed: 45,
-                Knockback: 17.5,
                 BurnDamage: 6,
                 BurnTime: 6,
                 TickRate: 1,
