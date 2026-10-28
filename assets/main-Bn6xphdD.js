@@ -13373,7 +13373,7 @@ class TA {
     TotalElapsedDamage: {
       Default: {
         Requires: ["BurnDamage", "BurnTime", "TickRate"],
-        Value: (A) => isNaN(A.TickRate) ? 0 : (A.BurnDamage * A.BurnTime) / A.TickRate,
+        Value: (A) => (isNaN(A.TickRate) || A.TickRate == 0) ? 0 : (A.BurnDamage * A.BurnTime) / A.TickRate,
       },
     },
     AggregateDPS: {
@@ -14992,8 +14992,8 @@ class BA {
           if (A.Level <= 2) g = "Arrow 2";
           else if (A.Level <= 1) g = "Arrow 1";
           else if (A.Level <= 0) g = "Arrow 0";
-          else return NaN;
-          return this.unitManager.hasUnit(g) ? A.Damage / A.Cooldown : NaN;
+          else return 0;
+          return this.unitManager.hasUnit(g) ? A.Damage / A.Cooldown : 0;
         },
       },
     },
@@ -15001,7 +15001,7 @@ class BA {
       Default: {
         For: ["Archer"],
         Value: (A) =>
-          A.BurnDPS === 0 ? NaN : A.Damage / A.Cooldown + A.BurnDPS,
+          A.BurnDPS === 0 ? 0 : A.Damage / A.Cooldown + A.BurnDPS,
       },
     },
     ShockArrowDPS: {
@@ -15011,8 +15011,8 @@ class BA {
           this.unitManager.load();
           let g;
           if (A.Level >= 5) g = "Shock Arrow 5";
-          else return NaN;
-          return this.unitManager.hasUnit(g) ? A.Damage / A.Cooldown : NaN;
+          else return 0;
+          return this.unitManager.hasUnit(g) ? A.Damage / A.Cooldown : 0;
         },
       },
     },
@@ -15020,7 +15020,7 @@ class BA {
       Default: {
         For: ["Archer"],
         Value: (A) =>
-          A.ExplosionDPS === 0 ? NaN : A.Damage / A.Cooldown + A.ExplosionDPS,
+          A.ExplosionDPS === 0 ? 0 : A.Damage / A.Cooldown + A.ExplosionDPS,
       },
     },
     ArrowCE: {
