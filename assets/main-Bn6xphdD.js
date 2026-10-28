@@ -3411,15 +3411,16 @@ const cA = {
               Range: 20,
             },
             Title: "Eagle Eye",
-            Cost: 100,
+            Cost: 250,
           },
           {
             Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/7/74/ArcherUpgrade2.png/revision/latest/scale-to-width-down/200?cb=20250806200309",
             Stats: {
               Damage: 8,
+              Detections: { Hidden: !0 },
             },
             Title: "Deadshot",
-            Cost: 400,
+            Cost: 550,
           },
           {
             Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/0/09/ArcherUpgrade3.png/revision/latest/scale-to-width-down/200?cb=20250806200310",
@@ -13372,7 +13373,7 @@ class TA {
     TotalElapsedDamage: {
       Default: {
         Requires: ["BurnDamage", "BurnTime", "TickRate"],
-        Value: (A) => (A.BurnDamage * A.BurnTime) / A.TickRate,
+        Value: (A) => isNaN(A.TickRate) ? 0 : (A.BurnDamage * A.BurnTime) / A.TickRate,
       },
     },
     AggregateDPS: {
