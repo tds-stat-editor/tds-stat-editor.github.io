@@ -14992,7 +14992,7 @@ class BA {
           if (A.Level <= 2) g = "Arrow 2";
           else if (A.Level <= 1) g = "Arrow 1";
           else if (A.Level <= 0) g = "Arrow 0";
-          else return 0;
+          else return A.Damage / A.Cooldown;
           return this.unitManager.hasUnit(g) ? A.Damage / A.Cooldown : 0;
         },
       },
@@ -15024,18 +15024,18 @@ class BA {
       },
     },
     ArrowCE: {
-      Default: { For: ["Archer"], Value: (A) => A.NetCost / A.ArrowDPS },
+      Default: { For: ["Archer"], Value: (A) => A.ArrowDPS == 0 ? 0 : A.NetCost / A.ArrowDPS },
     },
     FlameArrowCE: {
-      Default: { For: ["Archer"], Value: (A) => A.NetCost / A.FlameArrowDPS },
+      Default: { For: ["Archer"], Value: (A) => A.FlameArrowDPS == 0 ? 0 : A.NetCost / A.FlameArrowDPS },
     },
     ShockArrowCE: {
-      Default: { For: ["Archer"], Value: (A) => A.NetCost / A.ShockArrowDPS },
+      Default: { For: ["Archer"], Value: (A) => A.ShockArrowDPS == 0 ? 0 :A.NetCost / A.ShockArrowDPS },
     },
     ExplosiveArrowCE: {
       Default: {
         For: ["Archer"],
-        Value: (A) => A.NetCost / A.ExplosiveArrowDPS,
+        Value: (A) => A.ExplosiveArrowDPS == 0 ? 0 : A.NetCost / A.ExplosiveArrowDPS,
       },
     },
     WhirlwindDamage: {
