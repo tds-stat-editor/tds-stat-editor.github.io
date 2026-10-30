@@ -15004,6 +15004,21 @@ class BA {
           A.BurnDPS === 0 ? 0 : A.Damage / A.Cooldown + A.BurnDPS,
       },
     },
+    FlameArrowMaxDPS: {
+      Default: {
+        For: ["Archer"],
+        Value: (A) => {
+          this.unitManager.load();
+          let g;
+          if (A.Level >= 5) g = "Flame Arrow 5";
+          else if (A.Level >= 4) g = "Flame Arrow 4";
+          else if (A.Level >= 3) g = "Flame Arrow 3";
+          else return 0;
+
+          return A.FlameArrowDPS * A.MaxHits;
+        }
+      },
+    },
     ShockArrowDPS: {
       Default: {
         For: ["Archer"],
@@ -15028,6 +15043,9 @@ class BA {
     },
     FlameArrowCE: {
       Default: { For: ["Archer"], Value: (A) => A.FlameArrowDPS == 0 ? 0 : A.NetCost / A.FlameArrowDPS },
+    },
+    FlameArrowMaxCE: {
+      Default: { For: ["Archer"], Value: (A) => A.FlameArrowDPS == 0 ? 0 : A.NetCost / A.FlameArrowMaxDPS },
     },
     ShockArrowCE: {
       Default: { For: ["Archer"], Value: (A) => A.ShockArrowDPS == 0 ? 0 :A.NetCost / A.ShockArrowDPS },
@@ -15383,6 +15401,7 @@ class BA {
       this.#A("ExplosionDPS", A),
       this.#A("ArrowDPS", A),
       this.#A("FlameArrowDPS", A),
+      this.#A("FlameArrowMaxDPS", A),
       this.#A("ShockArrowDPS", A),
       this.#A("ExplosiveArrowDPS", A),
       this.#A("KnifeDPS", A),
@@ -15399,6 +15418,7 @@ class BA {
       this.#A("MaxCostEfficiency", A),
       this.#A("ArrowCE", A),
       this.#A("FlameArrowCE", A),
+      this.#A("FlameArrowMaxCE", A),
       this.#A("ShockArrowCE", A),
       this.#A("ExplosiveArrowCE", A),
       this.#A("Coverage", A),
