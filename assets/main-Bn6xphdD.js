@@ -15013,10 +15013,11 @@ class BA {
           if (A.Level >= 5) g = "Flame Arrow 5";
           else if (A.Level >= 4) g = "Flame Arrow 4";
           else if (A.Level >= 3) g = "Flame Arrow 3";
-          else return 0;
+          if (!this.unitManager.hasUnit(g)) return 0;
 
-          let arrow = this.unitManager.unitData[g];
-          return A.FlameArrowDPS * arrow.attributes.MaxHits;
+          const shoegaze = this.unitManager.unitData[g];
+
+          return A.FlameArrowDPS * shoegaze.attributes.MaxHits;
         }
       },
     },
