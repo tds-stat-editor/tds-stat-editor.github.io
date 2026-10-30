@@ -16196,6 +16196,11 @@ class aA {
     "ParryCooldown",
     "TrapPlacementTime",
     "CostClone",
+    'FlameArrowCE',
+    'ArrowCE',
+    'ShockArrowCE',
+    'ExplosiveArrowCE',
+    'FlameArrowMaxCE',
   ];
   #t(A, g, I) {
     const C = A - g;
