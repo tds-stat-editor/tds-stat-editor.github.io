@@ -15015,7 +15015,7 @@ class BA {
           else if (A.Level >= 3) g = "Flame Arrow 3";
           else return 0;
 
-          return A.FlameArrowDPS * A.MaxHits;
+          return A.FlameArrowDPS * g.MaxHits;
         }
       },
     },
