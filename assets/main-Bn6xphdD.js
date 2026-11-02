@@ -3476,7 +3476,7 @@ const cA = {
               Range: 24,
               Damage: 40,
             },
-            Title: "Shot of the Century",
+            Title: "Shock & Awe",
             Cost: 8500,
           },
         ],
@@ -12441,6 +12441,94 @@ Stun immunity at max level.`,
         ],
       },
     },
+    "Star Cannon": {
+      Default: {
+        Defaults: {
+          Detections: { Flying: !0, Hidden: !1, Lead: !0 },
+          Range: 90,
+          Price: 20210,
+          Cooldown: 0,
+          Damage: 0,
+          Limit: 1,
+          Attributes: {
+            BaseDamage: 200,
+            MaxDamage: 4000,
+            MaxChargeTime: 30,
+            RebootTime: 7.5,
+            FiringWindup: 1.5,
+            ExplosionRadius: 2.5,
+            MaxHits: 3,
+            StunTime: 0,
+            BossStunTime: 0,
+            BatteryDropChance: 10,
+            ChargePerBattery: 2,
+          },
+          Note: "Has a placement footprint of 3 studs (bigger than Alpha's mother).",
+        },
+        Upgrades: [
+          {
+            Image: "https://tds.wiki/images/thumb/5/51/StarCannon1.png/200px-StarCannon1.png.webp?cb=20261031132404",
+            Stats: {
+              Attributes: {
+                BaseDamage: 300,
+                MaxDamage: 5500,
+                StunTime: 1,
+              }
+            },
+            Title: "Solar-Flare Batteries",
+            Cost: 9001,
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/4/41/StarCannon2.png/200px-StarCannon2.png.webp?cb=20261031132404",
+            Stats: {
+              Attributes: {
+                BaseDamage: 500,
+                MaxDamage: 15000,
+                ExplosionRadius: 3,
+                MaxChargeTime: 45,
+                RebootTime: 10,
+                StunTime: 2,
+                BatteryDropChance: 15,
+              },
+            },
+            Cost: 29001,
+            Title: "Eclipsed Crew",
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/dc/Operator3.png/revision/latest/scale-to-width-down/200?cb=20260619163122",
+            Stats: {
+              Attributes: {
+                BaseDamage: 2000,
+                MaxDamage: 45000,
+                MaxChargeTime: 60,
+                RebootTime: 7.5,
+                StunTime: 4,
+              },
+              Detections: { Hidden: !0 },
+            },
+            Cost: 80000,
+            Title: "Lunar Charges",
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/49/Operator4.png/revision/latest/scale-to-width-down/200?cb=20260619163124",
+            Stats: {
+              Attributes: {
+                BaseDamage: 5000,
+                MaxDamage: 140000,
+                MaxChargeTime: 70,
+                RebootTime: 10,
+                ExplosionRadius: 5,
+                StunTime: 4,
+                BossStunTime: 4,
+                MaxHits: 6,
+              },
+            },
+            Cost: 240000,
+            Title: "Shot of the Century",
+          },
+        ],
+      }, 
+    },
   };
 class KA {
   constructor(A, g) {
@@ -14398,11 +14486,21 @@ class BA {
         Value: (A) => A.Ammo * A.Cooldown,
       },
     },
+    MinDPS: {
+      Default: {
+        For: ['Star Cannon'],
+        Value: (A) => A.BaseDamage / (A.RebootTime + A.FiringWindup),
+      },
+    },
     MaxDPS: {
       Default: {
         For: ["Paintballer"],
         Requires: ["DPS", "MaxHits"],
         Value: (A) => A.DPS * A.MaxHits,
+      },
+      Cannon: {
+        For: ['Star Cannon'],
+        Value: (A) => A.BaseDamage / (A.RebootTime + A.FiringWindup + A.MaxChargeTime),
       },
       Ranger: {
         For: ["Ranger"],
@@ -14489,6 +14587,7 @@ class BA {
           "Biologist",
           "Medic",
           "Archer",
+          "Star Cannon"
         ],
         Value: (A) => {
           const g = A.Damage / A.Cooldown;
@@ -14836,6 +14935,12 @@ class BA {
             Q = 2.62040766713282;
           return (g > 45 && (g = 45), I * g ** 3 + C * g ** 2 + B * g + Q);
         },
+      },
+    },
+    MinCostEfficiency: {
+      Default: {
+        Requires: ["MinDPS", "NetCost"],
+        Value: (A) => A.NetCost / A.MinDPS,
       },
     },
     MaxCostEfficiency: {
@@ -15413,10 +15518,12 @@ class BA {
       this.#A("CaravanDPS", A),
       this.#A("DPS Rate", A),
       this.#A("LimitDPS", A),
+      this.#A("MinDPS", A),
       this.#A("MaxDPS", A),
       this.#A("NetCost", A),
       this.#A("LimitNetCost", A),
       this.#A("CostEfficiency", A),
+      this.#A("MinCostEfficiency", A),
       this.#A("MaxCostEfficiency", A),
       this.#A("ArrowCE", A),
       this.#A("FlameArrowCE", A),
@@ -16108,6 +16215,7 @@ class aA {
       case "CooldownBoost":
       case "DamageTakenBonus":
       case "BountyPercentage":
+      case "BatteryDropChance":
         return I.format(A) + "%";
       case "BuffLength":
       case "BurnTime":
@@ -16150,6 +16258,11 @@ class aA {
       case "TowerSelectionCooldown":
       case "TimeBetweenMissiles":
       case "KnockbackDebounce":
+      case "ChargePerBattery":
+      case "StunTime":
+      case "BossStunTime":
+      case "MaxChargeTime":
+      case "FiringWindup":
         return I.format(A) + (C ? "s" : "");
       case "Range":
       case "ExplosionRadius":
@@ -16946,6 +17059,10 @@ class VA {
     const A = this.viewer.getActiveSkin();
     return A ? A.tower.name === "DJ Booth" : !1;
   }
+  isStarCannonTower() {
+    const A = this.viewer.getActiveSkin();
+    return A ? A.tower.name === "Star Cannon" : !1;
+  }
   isArcherTower() {
     const A = this.viewer.getActiveSkin();
     return A ? A.tower.name === "Archer" : !1;
@@ -17035,7 +17152,7 @@ class VA {
               A === "Hidden" ||
               A === "Flying" ||
               A === "Lead")) ||
-          (this.isDJTower() && (A === "Damage" || A === "Cooldown")) ||
+          ((this.isDJTower() || this.isStarCannonTower()) && (A === "Damage" || A === "Cooldown")) ||
           (this.isArcherTower() &&
             (A === "Hidden" || A === "Flying" || A === "Lead")))) ||
       (this.currentView === "unit" && this.unitHidden.includes(A))
