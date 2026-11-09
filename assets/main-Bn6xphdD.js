@@ -12584,7 +12584,6 @@ Max DPS does not account for batteries.`,
           {
             Image: "https://tds.wiki/images/thumb/a/af/Boomerang4.png/200px-Boomerang4.png.webp?cb=20260717161153",
             Stats: {
-              Detections: { Lead: !0 },
               Damage: 40,
               Cooldown: 1.4,
               Attributes: {
@@ -12601,7 +12600,7 @@ Max DPS does not account for batteries.`,
     "Slime Trooper": {
       Default: {
         Defaults: {
-          Detections: { Flying: !0, Hidden: !1, Lead: !1 },
+          Detections: { Flying: !1, Hidden: !1, Lead: !1 },
           Range: 11.5,
           Price: 500,
           Cooldown: 3,
@@ -12663,6 +12662,81 @@ Max DPS does not account for batteries.`,
             },
             Cost: 4650,
             Title: "Explosive Goo",
+          },
+        ],
+      },
+    },
+    "Pulse Trooper": {
+      Default: {
+        Defaults: {
+          Detections: { Flying: !1, Hidden: !1, Lead: !1 },
+          Range: 7.5,
+          Price: 2100,
+          Cooldown: 1.5,
+          Damage: 13,
+          Attributes: {
+            MaxHits: 1000,
+            PulseSpeed: 20,
+            LaserDamage: 0,
+            LaserDuration: 0,
+          },
+          Note: `Attacks in a 360° arc around itself.
+Has a footprint of 2.25 studs (very large).
+Sweeper ability has an initial cooldown of 30 seconds.`,
+        },
+        Upgrades: [
+          {
+            Image: "https://tds.wiki/images/thumb/e/e2/PulseTrooperUpgrade1.png/200px-PulseTrooperUpgrade1.png.webp?cb=20260911163840",
+            Stats: {
+              Damage: 15,
+              Cooldown: 1.2,
+            },
+            Title: "Capacitor Boost",
+            Cost: 700,
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/7/7f/PulseTrooperUpgrade2.png/200px-PulseTrooperUpgrade2.png.webp?cb=20260911163244",
+            Stats: {
+              Damage: 25,
+              Range: 8.5,
+              Detections: { Lead: !0 },
+            },
+            Cost: 3600,
+            Title: "Pulse Amplifier",
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/8/82/PulseTrooperUpgrade3.png/200px-PulseTrooperUpgrade3.png.webp?cb=20260911163349",
+            Stats: {
+              Cooldown: 0.55,
+            },
+            Cost: 4900,
+            Title: "Charged Filament",
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/a/a3/PulseTrooperUpgrade4.png/200px-PulseTrooperUpgrade4.png.webp?cb=20260911163410",
+            Stats: {
+              Attributes: {
+                LaserDamage: 175,
+                LaserDuration: 7.5,
+              },
+              Damage: 35,
+              Range: 9,
+            },
+            Cost: 8500,
+            Title: "Sweeper",
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/0/0f/PulseTrooperUpgrade5.png/200px-PulseTrooperUpgrade5.png.webp?cb=20260911163430",
+            Stats: {
+              Attributes: {
+                LaserDamage: 300,
+                LaserDuration: 6,
+              },
+              Damage: 50,
+              Range: 10,
+            },
+            Cost: 17000,
+            Title: "Arc Reactor",
           },
         ],
       },
@@ -16469,6 +16543,7 @@ class aA {
     'ExplosiveArrowCE',
     'FlameArrowMaxCE',
     'SingleTargetCE',
+    'LaserDuration'
   ];
   #t(A, g, I) {
     const C = A - g;
