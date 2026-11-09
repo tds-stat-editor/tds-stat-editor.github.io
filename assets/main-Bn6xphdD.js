@@ -12529,6 +12529,75 @@ Max DPS does not account for batteries.`,
         ],
       }, 
     },
+    Boomerang: {
+      Default: {
+        Defaults: {
+          Detections: { Flying: !0, Hidden: !1, Lead: !1 },
+          Range: 14,
+          Price: 550,
+          Cooldown: 2.6,
+          Damage: 7,
+          Limit: 12,
+          Attributes: {
+            BoomerangCount: 1,
+            ThrowDelay: 1,
+            MaxHits: 3,
+            BoomerangTravelTime: 0.4,
+          },
+          Note: "DPS is calculated as (Damage * Boomerang Count) / (Cooldown + Throw Delay).",
+        },
+        Upgrades: [
+          {
+            Image: "https://tds.wiki/images/thumb/2/29/Boomerang1.png/200px-Boomerang1.png.webp?cb=20260717161151",
+            Stats: {
+              Damage: 12,
+              Range: 15,
+            },
+            Title: "Steel Fang",
+            Cost: 400,
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/5/5f/Operator2.png/revision/latest/scale-to-width-down/200?cb=20260619163121",
+            Stats: {
+              Cooldown: 1.6,
+              Attributes: {
+                BoomerangTravelTime: 0.3,
+                MaxHits: 4,
+              },
+            },
+            Cost: 750,
+            Title: "Firmer Grip",
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/dc/Operator3.png/revision/latest/scale-to-width-down/200?cb=20260619163122",
+            Stats: {
+              Detections: { Lead: !0 },
+              Damage: 16,
+              Range: 16,
+              Attributes: {
+                BoomerangCount: 2,
+              },
+            },
+            Cost: 2500,
+            Title: "Twin Strike",
+          },
+          {
+            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/49/Operator4.png/revision/latest/scale-to-width-down/200?cb=20260619163124",
+            Stats: {
+              Detections: { Lead: !0 },
+              Damage: 40,
+              Cooldown: 1.4,
+              Attributes: {
+                MaxHits: 5,
+                BoomerangTravelTime: 0.25,
+              },
+            },
+            Cost: 7000,
+            Title: "Lord of the Rangs",
+          },
+        ],
+      },
+    }
   };
 class KA {
   constructor(A, g) {
@@ -14597,6 +14666,10 @@ class BA {
       Ranger: {
         For: ["Ranger"],
         Value: (A) => (A.Damage + A.ExplosionDamage) / A.Cooldown,
+      },
+      Boomerang: {
+        For: ["Boomerang"],
+        Value: (A) => (A.Damage * A.BoomerangCount) / (A.Cooldown + A.ThrowDelay),
       },
       Operator: {
         For: ["Operator"],
