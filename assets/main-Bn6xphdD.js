@@ -12557,7 +12557,7 @@ Max DPS does not account for batteries.`,
             Cost: 400,
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/5/5f/Operator2.png/revision/latest/scale-to-width-down/200?cb=20260619163121",
+            Image: "https://tds.wiki/images/thumb/b/b6/Boomerang2.png/200px-Boomerang2.png.webp?cb=20260717161155",
             Stats: {
               Cooldown: 1.6,
               Attributes: {
@@ -12569,7 +12569,7 @@ Max DPS does not account for batteries.`,
             Title: "Firmer Grip",
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/d/dc/Operator3.png/revision/latest/scale-to-width-down/200?cb=20260619163122",
+            Image: "https://tds.wiki/images/thumb/1/11/Boomerang3.png/200px-Boomerang3.png.webp?cb=20260717161152",
             Stats: {
               Detections: { Lead: !0 },
               Damage: 16,
@@ -12582,7 +12582,7 @@ Max DPS does not account for batteries.`,
             Title: "Twin Strike",
           },
           {
-            Image: "https://static.wikia.nocookie.net/tower-defense-sim/images/4/49/Operator4.png/revision/latest/scale-to-width-down/200?cb=20260619163124",
+            Image: "https://tds.wiki/images/thumb/a/af/Boomerang4.png/200px-Boomerang4.png.webp?cb=20260717161153",
             Stats: {
               Detections: { Lead: !0 },
               Damage: 40,
@@ -12594,6 +12594,75 @@ Max DPS does not account for batteries.`,
             },
             Cost: 7000,
             Title: "Lord of the Rangs",
+          },
+        ],
+      },
+    },
+    "Slime Trooper": {
+      Default: {
+        Defaults: {
+          Detections: { Flying: !0, Hidden: !1, Lead: !1 },
+          Range: 11.5,
+          Price: 500,
+          Cooldown: 3,
+          Damage: 10,
+          Attributes: {
+            Slowdown: 15,
+            SlowdownTime: 3,
+            ExplosionRadius: 0,
+          },
+          Note: `Slimes out the enemies lol
+(Explosive Goo does not have Lead Detection.)`,
+        },
+        Upgrades: [
+          {
+            Image: "https://tds.wiki/images/thumb/e/ed/SlimeTrooperUpgrade1.png/200px-SlimeTrooperUpgrade1.png.webp?cb=20260508161800",
+            Stats: {
+              Cooldown: 2.25,
+              Range: 13,
+              Attributes: {
+                Slowdown: 17.5,
+              },
+            },
+            Title: "Stickier Slime",
+            Cost: 250,
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/4/4d/SlimeTrooperUpgrade2.png/200px-SlimeTrooperUpgrade2.png.webp?cb=20260508161818",
+            Stats: {
+              Damage: 20,
+              Range: 15.5,
+              Detections: { Hidden: !0 },
+            },
+            Cost: 650,
+            Title: "Heavy Globs",
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/f/fe/SlimeTrooperUpgrade3.png/200px-SlimeTrooperUpgrade3.png.webp?cb=20260508161835",
+            Stats: {
+              Damage: 46,
+              Range: 17,
+              Attributes: {
+                Slowdown: 20,
+                SlowdownTime: 5,
+              },
+            },
+            Cost: 2100,
+            Title: "Potent Goo",
+          },
+          {
+            Image: "https://tds.wiki/images/thumb/2/2e/SlimeTrooperUpgrade4.png/200px-SlimeTrooperUpgrade4.png.webp?cb=20260508161852",
+            Stats: {
+              Detections: { Flying: !0 },
+              Damage: 64,
+              Cooldown: 1.8,
+              Attributes: {
+                ExplosionRadius: 2.5,
+                Slowdown: 22.5,
+              },
+            },
+            Cost: 4650,
+            Title: "Explosive Goo",
           },
         ],
       },
@@ -16276,6 +16345,7 @@ class aA {
       case "IncomePerSecond":
       case "TotalIncomePerSecond":
       case "BountyCap":
+      case "SingleTargetCE":
         return `$${I.format(+(+A).toFixed(2))}`;
       case "MaxDefenseMelt":
       case "DefenseMelt":
@@ -16344,6 +16414,7 @@ class aA {
       case "BossStunTime":
       case "MaxChargeTime":
       case "FiringWindup":
+      case "RebootTime":
         return I.format(A) + (C ? "s" : "");
       case "Range":
       case "ExplosionRadius":
@@ -16397,6 +16468,7 @@ class aA {
     'ShockArrowCE',
     'ExplosiveArrowCE',
     'FlameArrowMaxCE',
+    'SingleTargetCE',
   ];
   #t(A, g, I) {
     const C = A - g;
