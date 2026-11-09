@@ -14915,6 +14915,12 @@ class BA {
         Value: (A) => A.Damage / (A.Cooldown + 1.65),
       },
     },
+    SingleTargetCE: {
+      Default: {
+        For: ['Executioner'],
+        Value: (A) => A.NetCost / A.SingleTargetDPS,
+      },
+    },
     AftershockDPS: {
       Default: {
         Requires: ["AftershockDamage"],
@@ -15596,6 +15602,7 @@ class BA {
       this.#A("NetCost", A),
       this.#A("LimitNetCost", A),
       this.#A("CostEfficiency", A),
+      this.#A("SingleTargetCE", A),
       this.#A("MinCostEfficiency", A),
       this.#A("MaxCostEfficiency", A),
       this.#A("ArrowCE", A),
