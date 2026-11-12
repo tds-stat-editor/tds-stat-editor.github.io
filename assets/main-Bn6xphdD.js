@@ -14596,6 +14596,17 @@ class BA {
             : 0;
         },
       },
+      MiliBase: {
+        Requires: ["UnitToSend"],
+        For: ["Military Base"],
+        Value: (A) => {
+          this.unitManager.load();
+          const g = A.UnitToSend;
+          return this.unitManager.hasUnit(g)
+            ? this.unitManager.unitData[g].attributes.TotalDPS
+            : 0;
+        },
+      },
       Engineer: {
         For: ["Engineer"],
         Requires: ["UnitToSend", "MaxUnits"],
