@@ -8736,7 +8736,7 @@ At level 4, Raise the Dead: Max Units - 1x Executioner Skeleton, 5x Skeleton Kni
             Deadzone: 9,
             ExplosionRadius: 3,
             MissileAmount: 1,
-            SpreadAngle: "NaN",
+            SpreadAngle: 0,
             Accuracy: 1,
             ProjectileSpeed: 25,
           },
@@ -9651,7 +9651,6 @@ Has a placement footprint of 1 stud (small).`,
                 "[Collapsible:]Cooldown: 15s",
               ],
               Attributes: {
-                BeeDamage: 2,
                 TickRate: 0.75,
                 BeeDuration: 5.25,
                 MaxStacks: 12,
@@ -11724,7 +11723,7 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
           Cooldown: 1.1,
           Damage: 25,
           Limit: 4,
-          Attributes: { KnockbackForce: "NaN", KnockbackDebounce: "NaN" },
+          Attributes: { KnockbackForce: 0, KnockbackDebounce: 0 },
         },
         Upgrades: [
           {
@@ -11747,8 +11746,8 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
               Detections: { Hidden: !0 },
               Attributes: { KnockbackForce: 15, KnockbackDebounce: 3 },
               Extras: [
-                "Knockback Force: NaN → 20",
-                "Knockback Debounce: NaN → 3",
+                "Knockback Force: 0 → 20",
+                "Knockback Debounce: 0 → 3",
               ],
             },
           },
@@ -11798,10 +11797,10 @@ Through splash damage, flying enemies may be hit indirectly if another detectabl
           Limit: 4,
           Attributes: {
             "AOE Damage": 25,
-            BleedDamage: "NaN",
-            BleedStack: "NaN",
-            MaxStack: "NaN",
-            ExponentialValue: "NaN",
+            BleedDamage: 0,
+            BleedStack: 0,
+            MaxStack: 0,
+            ExponentialValue: 0,
             MaxHits: 2,
           },
           Note: "Hiddens can be attacked indirectly if a detectable enemy is nearby.",
@@ -14631,7 +14630,7 @@ class BA {
     MaxDPS: {
       Default: {
         Requires: ["DPS", "MaxHits"],
-        Exclude: ['Saboteur', 'Pulse Trooper'],
+        Exclude: ['Saboteur', 'Pulse Trooper', 'Ranger'],
         Value: (A) => A.DPS * A.MaxHits,
       },
       Cannon: {
@@ -16366,6 +16365,7 @@ class aA {
       case "BountyPercentage":
       case "BatteryDropChance":
       case "ParryDamageBuff":
+      case "CoordinationBuff":
         return I.format(A) + "%";
       case "BuffLength":
       case "BurnTime":
